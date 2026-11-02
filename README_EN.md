@@ -2,18 +2,18 @@
 
 [English](README_EN.md) | [繁體中文](README.md)
 
-A high-performance launcher and model switcher for Google Colab, built on official precompiled `llama.cpp` binaries. Supports GGUF models, multimodal vision projection (MMProj), dynamic context switching, and automated pairing with SUMA remote services.
+A high-performance launcher and model switcher for Google Colab, built on official precompiled `llama.cpp` binaries. Supports GGUF models, multimodal vision projection (MMProj), dynamic context switching, and leverages **SUMA Remote AI Bridge technology** to seamlessly access remote Colab GPU compute resources.
 
 ---
 
 ## 🌟 Key Features
 
+- **SUMA Remote AI Bridge Integration**: Powered by SUMA Remote AI Bridge technology to securely bridge remote Google Colab GPU computing power directly to local clients and applications without requiring public IP configuration, port forwarding, or complex reverse proxies.
 - **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12020) binaries directly, eliminating long build and compilation times.
 - **Form-Based UI**: Utilizes Google Colab Form controls with clean dropdown selections. Code cells are collapsed by default for an intuitive user experience.
 - **Seamless Hot Switching**: Separate forms for "Initial Startup" and "Model Switching". Switch models smoothly while terminating prior processes and releasing GPU VRAM without restarting the VM session.
 - **Smart MMProj Fallback**: Automatically loads vision projection components when available. If the selected model lacks MMProj support, it gracefully falls back to text-only mode without breaking execution.
 - **Resumable Downloads**: Built-in chunked downloading and range-based breakpoint resumption saves time and bandwidth across sessions.
-- **SUMA Service Integration**: Automatically provisions and runs the SUMA bridge daemon for zero-config remote pairing and inference forwarding.
 
 ---
 
