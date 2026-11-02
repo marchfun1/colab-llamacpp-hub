@@ -20,3 +20,8 @@ env/
 
 # Logs & temp
 *.log
+
+# Internal & agent guidance markdown files (preserve READMEs only)
+AGENTS.md
+RTK.md
+
