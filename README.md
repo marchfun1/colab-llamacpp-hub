@@ -2,13 +2,13 @@
 
 [English](README_EN.md) | [繁體中文](README.md)
 
-專為 Google Colab 設計的高效模型啟動與切換工具，基於 `llama.cpp` 官方預編譯二進位檔構建，支援 GGUF 格式、多模態（MMProj）、動態上下文長度切換，並**透過 SUMA Remote AI Bridge 技術無縫存取遠端 Colab GPU 算力**。
+專為 Google Colab 設計的高效模型啟動與切換工具，基於 `llama.cpp` 官方預編譯二進位檔構建，支援 GGUF 格式、多模態（MMProj）、動態上下文長度切換，並**透過 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術無縫存取遠端 Colab GPU 算力**。
 
 ---
 
 ## 🌟 核心特色
 
-- **SUMA Remote AI Bridge 算力串接**：採用專利級的 SUMA Remote AI Bridge 技術，直接將遠端 Google Colab 的 GPU 算力安全對接到本地應用與客戶端，無需設定公網 IP、連接埠轉發（Port Forwarding）或繁瑣的反向代理。
+- **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 算力串接**：採用 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術，直接將遠端 Google Colab 的 GPU 算力安全對接到本地應用與客戶端，無需設定公網 IP、連接埠轉發（Port Forwarding）或繁瑣的反向代理。
 - **零建置快速啟動**：直接下載並解壓 `llama.cpp` (b12020) 官方預編譯套件，省去漫長的本機編譯時間。
 - **直觀表單介面**：利用 Colab Form 表單檢視，提供下拉式選單操作，預設折疊程式碼，保持視覺乾淨簡潔。
 - **無縫熱切換**：提供「初次啟動」與「後續切換」表單，切換模型時自動平順終止既有推論程序並釋放 VRAM，無需重設 VM 執行階段。
