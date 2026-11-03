@@ -1,4 +1,4 @@
-# SUMA Remote Model Launcher (Colab llama.cpp Launcher)
+# v2.2.1 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
 
@@ -9,7 +9,7 @@ A high-performance launcher and model switcher for Google Colab, built on offici
 ## 🌟 Key Features
 
 - **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) Integration**: Powered by [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) technology to securely bridge remote Google Colab GPU computing power directly to local clients and applications without requiring public IP configuration, port forwarding, or complex reverse proxies.
-- **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12020) binaries directly, eliminating long build and compilation times.
+- **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12032) binaries directly, eliminating long build and compilation times.
 - **Form-Based UI**: Utilizes Google Colab Form controls with clean dropdown selections. Code cells are collapsed by default for an intuitive user experience.
 - **Seamless Hot Switching**: Separate forms for "Initial Startup" and "Model Switching". Switch models smoothly while terminating prior processes and releasing GPU VRAM without restarting the VM session.
 - **Smart MMProj Fallback**: Automatically loads vision projection components when available. If the selected model lacks MMProj support, it gracefully falls back to text-only mode without breaking execution.
@@ -24,11 +24,11 @@ Preconfigured with optimized public GGUF models:
 | Model Name | Hugging Face Repository | Alias | Multimodal (MMProj) |
 | :--- | :--- | :--- | :---: |
 | **Gemma 4 12B QAT Q4_0** | `google/gemma-4-12B-it-qat-q4_0-gguf` | `gemma-4-12b` | ✅ Supported |
-| **Qwen3.5-9B Q5_K_M** | `unsloth/Qwen3.5-9B-GGUF` | `qwen3.5-9b` | ❌ Text Only |
-| **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ❌ Text Only |
-| **Qwen3.8-27B UD-IQ3_XXS** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-iq3xxs` | ❌ Text Only |
+| **Qwen3.5-9B Q5_K_M** | `unsloth/Qwen3.5-9B-GGUF` | `qwen3.5-9b` | ✅ Supported |
+| **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ Supported |
+| **Qwen3.8-27B Coder390 Q2LynnStyle** | `nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-GGUF-NInfer` | `qwen3.8-27b-coder390` | ✅ Supported |
 
-* Context Window Options: `32K`, `64K`, `128K`, `256K` (Please select based on your allocated Colab GPU VRAM to avoid Out-Of-Memory errors).
+* Context Window Options: `64K`, `128K`, `256K` (Please select based on your allocated Colab GPU VRAM to avoid Out-Of-Memory errors).
 
 ---
 
@@ -65,7 +65,7 @@ stop_services()
 - **Target Audience**: **This solution is specifically designed for users running on the free tier of Google Colab with a T4 GPU (approx. 15 GB VRAM)**. The default model quants (e.g., Q4_0, Q5_K_M, UD-Q2_K_XL) and context options are tuned specifically for T4 memory constraints to maintain smooth inference and avoid Out-Of-Memory (OOM) crashes.
 - **Sensitive Outputs**: SUMA connection logs may output pairing tokens or passcodes. Avoid sharing raw notebook outputs or screenshots publicly.
 - **Gated / Private Models**: This notebook focuses on public models and does not transmit or read `HF_TOKEN`. Requests to gated or private repositories will stop safely.
-- **Persistent Cache**: Files are stored in `/content/llama-direct-b12020`. Reusing the same Colab runtime preserves downloaded models for rapid switching.
+- **Persistent Cache**: Files are stored in `/content/llama-direct-b12032`. Reusing the same Colab runtime preserves downloaded models for rapid switching.
 
 ---
 
