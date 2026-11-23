@@ -1,4 +1,4 @@
-# v2.2.1 SUMA 遠端模型啟動器 (Colab llama.cpp Launcher)
+# v2.3.3 SUMA 遠端模型啟動器 (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
 
@@ -6,10 +6,21 @@
 
 ---
 
+## ⚡ 直接在 Colab 中開啟
+
+| 版本 | 適用規格 | 檔案名稱 | 啟動連結 |
+| :--- | :--- | :--- | :---: |
+| **繁體中文版（標準）** | T4 GPU (15 GB VRAM / 免費版) | `colab-llamacpp-hub.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nec-U8HF8nX17F5zZrImr5xj5VeFY11v?usp=sharing) |
+| **繁體中文版（96G）** | 高記憶體 GPU (96 GB VRAM) | `colab-llamacpp-hub_96G.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PlOqL4JMTxaWYlyU2m4rdDwlmoE0yv5C?usp=sharing) |
+| **English（標準）** | T4 GPU (15 GB VRAM / Free Tier) | `colab-llamacpp-hub_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nkrf9a1eVHEzES_QU5y00vf365FPwgnK?usp=sharing) |
+| **English（96G）** | 高記憶體 GPU (96 GB VRAM) | `colab-llamacpp-hub_96G_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10Em-w1Y7xRSf7N56UBOc4_aENPjjoQJU?usp=sharing) |
+
+---
+
 ## 🌟 核心特色
 
 - **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 算力串接**：採用 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術，直接將遠端 Google Colab 的 GPU 算力安全對接到本地應用與客戶端，無需設定公網 IP、連接埠轉發（Port Forwarding）或繁瑣的反向代理。
-- **零建置快速啟動**：直接下載並解壓 `llama.cpp` (b12032) 官方預編譯套件，省去漫長的本機編譯時間。
+- **零建置快速啟動**：直接下載並解壓 `llama.cpp` (b12436) 官方預編譯套件，省去漫長的本機編譯時間。
 - **直觀表單介面**：利用 Colab Form 表單檢視，提供下拉式選單操作，預設折疊程式碼，保持視覺乾淨簡潔。
 - **無縫熱切換**：提供「初次啟動」與「後續切換」表單，切換模型時自動平順終止既有推論程序並釋放 VRAM，無需重設 VM 執行階段。
 - **多模態（MMProj）智慧容錯**：支援視覺多模態投射器載入；若選取模型不支援多模態，會自動降級為純文字推論，避免中斷報錯。
@@ -65,7 +76,7 @@ stop_services()
 - **目標適用族群**：**本方案是專門設計給免費使用 Google Colab T4 GPU (約 15 GB VRAM) 的使用者（也就是 Colab 免費版）**。內建推薦的模型量化檔（Q4_0、Q5_K_M、UD-Q2_K_XL 等）與設定均已針對 T4 15 GB 記憶體限制進行調校，兼顧推論流暢度與避免 OOM。
 - **安全性提醒**：SUMA 服務輸出可能包含私有配對碼或連線 Token，請勿將包含此類敏感資訊的 Notebook 輸出直接公開截圖或分享。
 - **Gated / Private 倉庫**：本專案預設採用公開權限模型，不讀取亦不傳輸個人 `HF_TOKEN`。若目標倉庫為授權限制模型將會中斷，避免未經授權存取。
-- **檔案留存**：模型及環境安裝於 `/content/llama-direct-b12032`，在同一個 Colab 執行階段中保留，換模型時不會刪除既有 GGUF，以利快速切換回原模型。
+- **檔案留存**：模型及環境安裝於 `/content/llama-direct-b12097`，在同一個 Colab 執行階段中保留，換模型時不會刪除既有 GGUF，以利快速切換回原模型。
 
 ---
 

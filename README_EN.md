@@ -1,4 +1,4 @@
-# v2.2.1 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
+# v2.3.3 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
 
@@ -6,10 +6,21 @@ A high-performance launcher and model switcher for Google Colab, built on offici
 
 ---
 
+## ⚡ Open in Google Colab
+
+| Edition | Target Hardware | Notebook | Launch |
+| :--- | :--- | :--- | :---: |
+| **English (Standard)** | T4 GPU (15 GB VRAM / Free Tier) | `colab-llamacpp-hub_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nkrf9a1eVHEzES_QU5y00vf365FPwgnK?usp=sharing) |
+| **English (96G)** | High-VRAM GPU (96 GB VRAM) | `colab-llamacpp-hub_96G_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10Em-w1Y7xRSf7N56UBOc4_aENPjjoQJU?usp=sharing) |
+| **Traditional Chinese (Standard)** | T4 GPU (15 GB VRAM / Free Tier) | `colab-llamacpp-hub.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nec-U8HF8nX17F5zZrImr5xj5VeFY11v?usp=sharing) |
+| **Traditional Chinese (96G)** | High-VRAM GPU (96 GB VRAM) | `colab-llamacpp-hub_96G.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PlOqL4JMTxaWYlyU2m4rdDwlmoE0yv5C?usp=sharing) |
+
+---
+
 ## 🌟 Key Features
 
 - **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) Integration**: Powered by [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) technology to securely bridge remote Google Colab GPU computing power directly to local clients and applications without requiring public IP configuration, port forwarding, or complex reverse proxies.
-- **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12032) binaries directly, eliminating long build and compilation times.
+- **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12436) binaries directly, eliminating long build and compilation times.
 - **Form-Based UI**: Utilizes Google Colab Form controls with clean dropdown selections. Code cells are collapsed by default for an intuitive user experience.
 - **Seamless Hot Switching**: Separate forms for "Initial Startup" and "Model Switching". Switch models smoothly while terminating prior processes and releasing GPU VRAM without restarting the VM session.
 - **Smart MMProj Fallback**: Automatically loads vision projection components when available. If the selected model lacks MMProj support, it gracefully falls back to text-only mode without breaking execution.
@@ -34,7 +45,7 @@ Preconfigured with optimized public GGUF models:
 
 ## 🚀 Quick Start
 
-1. **Open the Notebook**: Import `colab-llamacpp-hub.ipynb` into Google Colab.
+1. **Open the Notebook**: Import `colab-llamacpp-hub_EN.ipynb` into Google Colab.
 2. **Enable GPU Accelerator**: Go to **Runtime** > **Change runtime type**, and select **T4 GPU** (or any higher-tier GPU).
 3. **Initial Launch**:
    - Locate the first code cell (Form UI).
@@ -65,7 +76,7 @@ stop_services()
 - **Target Audience**: **This solution is specifically designed for users running on the free tier of Google Colab with a T4 GPU (approx. 15 GB VRAM)**. The default model quants (e.g., Q4_0, Q5_K_M, UD-Q2_K_XL) and context options are tuned specifically for T4 memory constraints to maintain smooth inference and avoid Out-Of-Memory (OOM) crashes.
 - **Sensitive Outputs**: SUMA connection logs may output pairing tokens or passcodes. Avoid sharing raw notebook outputs or screenshots publicly.
 - **Gated / Private Models**: This notebook focuses on public models and does not transmit or read `HF_TOKEN`. Requests to gated or private repositories will stop safely.
-- **Persistent Cache**: Files are stored in `/content/llama-direct-b12032`. Reusing the same Colab runtime preserves downloaded models for rapid switching.
+- **Persistent Cache**: Files are stored in `/content/llama-direct-b12097`. Reusing the same Colab runtime preserves downloaded models for rapid switching.
 
 ---
 

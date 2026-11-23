@@ -2,11 +2,88 @@
 
 本專案遵循語意化版本（Semantic Versioning）規範記錄所有版本變更。
 
+## [2.3.3] - 2026-11-16
+
+### ⚙️ 推論引擎升級 (Engine Upgrade)
+- **llama.cpp 核心引擎版本升級**：
+  - 官方預編譯套件由 `b12173` 全面升級至最新發行版 `b12436`。
+  - 快取與連線檢查目錄全面遷移至 `/content/llama-direct-b12436`，維持斷點續傳與已下載資產相容性。
+  - 同步更新內建官方直連預編譯資產清單 (`_KNOWN_ASSETS`)，收錄 `b12436` 官方 CUDA 12.8 / 13.5 套件與對應 `cudart` 下載連結及精確檔案大小，確保免 API 直連下載的高穩定性。
+- **全系列 Notebook 與文件同步升級**：
+  - 同步更新標準繁中版 (`colab-llamacpp-hub.ipynb`)、96G 繁中專用版 (`colab-llamacpp-hub_96G.ipynb`)、標準英文版 (`colab-llamacpp-hub_EN.ipynb`) 與 96G 英文專用版 (`colab-llamacpp-hub_96G_EN.ipynb`)。
+  - 同步更新繁體中文與英文版 `README.md` / `README_EN.md`。
+
+---
+
+## [2.3.2] - 2026-11-09
+
+### 🔒 遠端橋接固定版本鎖定 (SUMA Remote AI Bridge Fixed Version Pinning)
+- **SUMA Remote AI Bridge 改用固定發行版下載**：
+  - 移除啟動時透過 GitHub Releases API 及官網下載頁的動態版本偵測機制。
+  - 直接鎖定採用穩定發行版本 `0.3.6.0 Beta` (`0360`)：`https://github.com/marchfun1/SUMA-Remote-AI-Bridge/releases/download/0360/SUMA-Remote-AI-Bridge_0.3.6.0_Beta-linux-{arch}.tar.gz`。
+  - 內建精確檔案大小校驗（`8,190,363 bytes` / amd64），完全杜絕在 Google Colab 共用 IP 環境下因查詢外部 API 導致之 HTTP 403 限流或 HTTP 504 逾時風險。
+- **全系列 Notebook 與文件同步升級**：
+  - 同步更新標準繁中版 (`colab-llamacpp-hub.ipynb`)、96G 繁中專用版 (`colab-llamacpp-hub_96G.ipynb`)、標準英文版 (`colab-llamacpp-hub_EN.ipynb`) 與 96G 英文專用版 (`colab-llamacpp-hub_96G_EN.ipynb`)。
+  - 同步更新繁體中文與英文版 `README.md` / `README_EN.md`。
+
+---
+
+## [2.3.1] - 2026-11-07
+
+### ⚙️ 推論引擎升級與連線可靠度最佳化 (Engine Upgrade & Reliability Fixes)
+- **llama.cpp 核心引擎版本升級**：
+  - 官方預編譯套件由 `b12097` 全面升級至最新發行版 `b12173`。
+  - 快取目錄全面遷移至 `/content/llama-direct-b12173`，維持斷點續傳與已下載資產相容性。
+- **解決 GitHub API 限流與 504 逾時異常 (Fix API Gateway Timeout & Rate Limits)**：
+  - **內建官方直連資產清單 (`_KNOWN_ASSETS`)**：為 `b12173` 內建完整官方 CUDA 預編譯套件（CUDA 12.8 / 13.5）與對應 `cudart` 下載連結，免去查詢 GitHub REST API 步驟，徹底根除 Google Colab 共用 IP 常見的 `HTTP 504: Gateway Time-out` 與 `HTTP 403: Rate Limit` 問題。
+  - **動態直連下載備援機制 (`_generate_candidate_assets`)**：當查詢 GitHub API 失敗時，自動降級切換至官方直連資產命名規則下載，確保流程穩定不中斷。
+  - **CUDA 12.x 次版本向下相容判定**：改進 `_candidates` 套件匹配邏輯，支援 CUDA 12.x 系列主版本相容測試，避免因 Colab 驅動版本微幅落後而誤判略過。
+- **全系列 Notebook 與文件同步升級**：
+  - 同步更新標準繁中版 (`colab-llamacpp-hub.ipynb`)、96G 繁中專用版 (`colab-llamacpp-hub_96G.ipynb`)、標準英文版 (`colab-llamacpp-hub_EN.ipynb`) 與 96G 英文專用版 (`colab-llamacpp-hub_96G_EN.ipynb`)。
+  - 同步更新繁體中文與英文版 `README.md` / `README_EN.md`。
+
+---
+
+## [2.3.0] - 2026-11-05
+
+### 🌐 雙語獨立架構拆分 (Dedicated Bilingual Architecture Split)
+- **繁體中文與英文獨立版本解耦**：
+  - 將標準版與 96G 專用版全面拆分獨立為純繁體中文版與純英文版 Notebook：
+    - 中文版維持原檔名：`colab-llamacpp-hub.ipynb`、`colab-llamacpp-hub_96G.ipynb`。
+    - 英文版採用 `_EN` 語言後綴：`colab-llamacpp-hub_EN.ipynb`、`colab-llamacpp-hub_96G_EN.ipynb`。
+  - 頂部規格說明儲存格回歸為純 Markdown 格式，使用者匯入 Colab 後即可直觀檢視完整引導與模型規格，省去手動執行儲存格的步驟。
+  - 移除所有執行階段動態語言轉換機制（`_msg` 函式與 `LANGUAGE` 下拉參數），日誌反饋、表單介面（`# @title` / `# @markdown`）、保活監控與錯誤訊息全面依目標語言純粹化。
+- **專案規範與文件同步**：
+  - 更新 `README_EN.md` 快速開始指引，對應全新英文版 Notebook 檔名。
+  - 於專案核心技能規則中新增雙語同步維護準則（Bilingual Synchronization），確保後續迭代雙語版本一致。
+
+### 🔄 SUMA Remote AI Bridge 自動取得最新版機制 (Auto-Fetch Latest SUMA Release)
+- **三重動態版本偵測與下載機制 (`_start_suma`)**：
+  - **第一重（GitHub Releases API）**：啟動時自動查詢 `https://api.github.com/repos/marchfun1/SUMA-Remote-AI-Bridge/releases/latest`，動態取得最新發行版標籤（如 `0360`）、檔案大小與對應系統架構（`-linux-amd64.tar.gz` / `-linux-arm64.tar.gz`）之下載連結。
+  - **第二重（官網下載區解析備援）**：當 Colab 共用 IP 遭遇 GitHub API 匿名請求限流（HTTP 403 Rate Limit）時，自動改連官網產品頁 `https://suma.tw/product/ai-bridge/` 解析下載區最新的 Linux CLI 套件連結與版本號，徹底擺脫 API 額度限制。
+  - **第三重（穩定版保底預設值）**：若遇極端網路環境導致前兩重查詢皆無法連線，自動降級使用 `0360`（`v0.3.6.0 Beta`）預設連結，確保遠端算力橋接服務穩定啟動。
+
+---
+
+## [2.2.2] - 2026-11-04
+
+### ⚙️ 推論引擎升級 (Engine Upgrade)
+- **llama.cpp 核心引擎版本升級**：
+  - 官方預編譯套件由 `b12032` 升級至最新發行版 `b12097`。
+  - 安裝與模型快取目錄遷移至 `/content/llama-direct-b12097`，保持斷點續傳與已下載資產相容性。
+  - 同步更新標準版 (`colab-llamacpp-hub.ipynb`) 與 96G 專用版 (`colab-llamacpp-hub_96G.ipynb`) 之二進位檔管理及連線檢查邏輯。
+
+---
+
 ## [2.2.1] - 2026-11-03
 
 ### 🔄 連線保活與中斷重啟機制 (Keep-Alive & Reconnection Recovery)
-- **前端防閒置保活機制 (`Keep-Alive`)**：
-  - 於啟動儲存格中注入定時保活 JavaScript，每 60 秒自動模擬點擊 Colab 連線工具列，持續向後端傳遞活躍訊號，避免因長時間無網頁互動而被 Google Colab 判定閒置進而中斷連線與回收 GPU。
+- **核心常駐保活監控循環 (`_keep_alive_watchdog`)**：
+  - 移除受限於 iframe 沙盒隔離而易失效之前端腳本，改由 Python 核心於模型服務啟動完成後直接進入常駐執行狀態。
+  - 儲存格持續維持執行（Running）以徹底防止 Google Colab 觸發「無操作閒置逾時（Idle Timeout）」斷線機制與釋放 GPU。
+  - 保活心跳頻率設定為 **每 5 分鐘（300 秒）** 一次，定期回報推論端點健康狀態與已穩定運行時數，降低日誌干擾。
+- **支援熱切換與斷線重連保活**：
+  - 模型切換（Switch Model）與重連恢復（Reconnect）單元同步整合常駐保活機制，維持不中斷連線。
 - **斷線重連與檔案完整性健康檢查單元 (`Service Health Check & Reconnect`)**：
   - 於 Notebook 最下方新增專屬重連檢查區塊。
   - **虛擬機重置/模型清空防呆檢測**：自動檢查磁碟內 GGUF 模型與套件完整性；若偵測到執行階段已遭 Google 回收清空，主動發出警告並指引使用者由第一格重新執行初始化。
