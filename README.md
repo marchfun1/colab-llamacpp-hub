@@ -1,6 +1,8 @@
-# v2.3.3 SUMA 遠端模型啟動器 (Colab llama.cpp Launcher)
+# v2.3.4 SUMA 遠端模型啟動器 (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
+
+> **目前內建引擎版本**：`llama.cpp b12651` ｜ **SUMA Remote AI Bridge**：`0.3.6.0 Beta`
 
 專為 Google Colab 設計的高效模型啟動與切換工具，基於 `llama.cpp` 官方預編譯二進位檔構建，支援 GGUF 格式、多模態（MMProj）、動態上下文長度切換，並**透過 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術無縫存取遠端 Colab GPU 算力**。
 
@@ -20,7 +22,7 @@
 ## 🌟 核心特色
 
 - **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 算力串接**：採用 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術，直接將遠端 Google Colab 的 GPU 算力安全對接到本地應用與客戶端，無需設定公網 IP、連接埠轉發（Port Forwarding）或繁瑣的反向代理。
-- **零建置快速啟動**：直接下載並解壓 `llama.cpp` (b12436) 官方預編譯套件，省去漫長的本機編譯時間。
+- **零建置快速啟動**：直接下載並解壓 `llama.cpp` (b12651) 官方預編譯套件，省去漫長的本機編譯時間。
 - **直觀表單介面**：利用 Colab Form 表單檢視，提供下拉式選單操作，預設折疊程式碼，保持視覺乾淨簡潔。
 - **無縫熱切換**：提供「初次啟動」與「後續切換」表單，切換模型時自動平順終止既有推論程序並釋放 VRAM，無需重設 VM 執行階段。
 - **多模態（MMProj）智慧容錯**：支援視覺多模態投射器載入；若選取模型不支援多模態，會自動降級為純文字推論，避免中斷報錯。
@@ -37,7 +39,7 @@
 | **Gemma 4 12B QAT Q4_0** | `google/gemma-4-12B-it-qat-q4_0-gguf` | `gemma-4-12b` | ✅ 支援 |
 | **Qwen3.5-9B Q5_K_M** | `unsloth/Qwen3.5-9B-GGUF` | `qwen3.5-9b` | ✅ 支援 |
 | **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ 支援 |
-| **Qwen3.8-27B Coder390 Q2LynnStyle** | `nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-GGUF-NInfer` | `qwen3.8-27b-coder390` | ✅ 支援 |
+| **Inkling-2-Mini UD-Q3_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q3kxl` | ✅ 支援 |
 
 * 上下文長度（Context）可選：`64K`、`128K`、`256K`（請依 Colab 實際分配到的 GPU 記憶體配置，避免 OOM）。
 

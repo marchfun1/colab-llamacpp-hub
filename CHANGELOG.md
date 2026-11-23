@@ -2,6 +2,25 @@
 
 本專案遵循語意化版本（Semantic Versioning）規範記錄所有版本變更。
 
+## [2.3.4] - 2026-11-23
+
+### ⚙️ 推論引擎升級 (Engine Upgrade)
+- **llama.cpp 核心引擎版本升級**：
+  - 官方預編譯套件由 `b12436` 升級至最新發行版 `b12651`。
+  - 快取與連線檢查目錄遷移至 `/content/llama-direct-b12651`，維持斷點續傳與已下載資產相容性。
+  - 同步更新內建官方直連預編譯資產清單 (`_KNOWN_ASSETS`)，收錄 `b12651` 官方 CUDA 12.8 / 13.5 套件與對應 `cudart` 下載連結及精確檔案大小。
+
+### 🤖 模型清單調整 (Model Catalog Update)
+- **替換預設模型選項**：
+  - 將 `Qwen3.8-27B Coder390 Q2LynnStyle` 替換為 `Inkling-2-Mini UD-Q3_K_XL`（來源：`unsloth/Inkling-2-Mini-GGUF`，主模型：`Inkling-2-Mini-UD-Q3_K_XL.gguf`，別名：`inkling-2-mini-q3kxl`）。
+  - 內建多模態視覺投影檔設定：`mmproj-BF16.gguf`，支援自動下載與載入。
+
+### 📝 文件與版本同步 (Documentation & Sync)
+- 同步更新標準繁中版 (`colab-llamacpp-hub.ipynb`)、96G 繁中專用版 (`colab-llamacpp-hub_96G.ipynb`)、標準英文版 (`colab-llamacpp-hub_EN.ipynb`) 與 96G 英文專用版 (`colab-llamacpp-hub_96G_EN.ipynb`)。
+- 於繁體中文與英文版 `README.md` / `README_EN.md` 頂部明確揭露目前內建 `llama.cpp` 版本 (`b12651`)。
+
+---
+
 ## [2.3.3] - 2026-11-16
 
 ### ⚙️ 推論引擎升級 (Engine Upgrade)

@@ -1,6 +1,8 @@
-# v2.3.3 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
+# v2.3.4 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
+
+> **Current Engine Version**: `llama.cpp b12651` | **SUMA Remote AI Bridge**: `0.3.6.0 Beta`
 
 A high-performance launcher and model switcher for Google Colab, built on official precompiled `llama.cpp` binaries. Supports GGUF models, multimodal vision projection (MMProj), dynamic context switching, and leverages **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) technology** to seamlessly access remote Colab GPU compute resources.
 
@@ -20,7 +22,7 @@ A high-performance launcher and model switcher for Google Colab, built on offici
 ## 🌟 Key Features
 
 - **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) Integration**: Powered by [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) technology to securely bridge remote Google Colab GPU computing power directly to local clients and applications without requiring public IP configuration, port forwarding, or complex reverse proxies.
-- **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12436) binaries directly, eliminating long build and compilation times.
+- **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12651) binaries directly, eliminating long build and compilation times.
 - **Form-Based UI**: Utilizes Google Colab Form controls with clean dropdown selections. Code cells are collapsed by default for an intuitive user experience.
 - **Seamless Hot Switching**: Separate forms for "Initial Startup" and "Model Switching". Switch models smoothly while terminating prior processes and releasing GPU VRAM without restarting the VM session.
 - **Smart MMProj Fallback**: Automatically loads vision projection components when available. If the selected model lacks MMProj support, it gracefully falls back to text-only mode without breaking execution.
@@ -37,7 +39,7 @@ Preconfigured with optimized public GGUF models:
 | **Gemma 4 12B QAT Q4_0** | `google/gemma-4-12B-it-qat-q4_0-gguf` | `gemma-4-12b` | ✅ Supported |
 | **Qwen3.5-9B Q5_K_M** | `unsloth/Qwen3.5-9B-GGUF` | `qwen3.5-9b` | ✅ Supported |
 | **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ Supported |
-| **Qwen3.8-27B Coder390 Q2LynnStyle** | `nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-GGUF-NInfer` | `qwen3.8-27b-coder390` | ✅ Supported |
+| **Inkling-2-Mini UD-Q3_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q3kxl` | ✅ Supported |
 
 * Context Window Options: `64K`, `128K`, `256K` (Please select based on your allocated Colab GPU VRAM to avoid Out-Of-Memory errors).
 
