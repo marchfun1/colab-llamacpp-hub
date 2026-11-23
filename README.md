@@ -13,9 +13,7 @@
 | 版本 | 適用規格 | 檔案名稱 | 啟動連結 |
 | :--- | :--- | :--- | :---: |
 | **繁體中文版（標準）** | T4 GPU (15 GB VRAM / 免費版) | `colab-llamacpp-hub.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nec-U8HF8nX17F5zZrImr5xj5VeFY11v?usp=sharing) |
-| **繁體中文版（96G）** | 高記憶體 GPU (96 GB VRAM) | `colab-llamacpp-hub_96G.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PlOqL4JMTxaWYlyU2m4rdDwlmoE0yv5C?usp=sharing) |
 | **English（標準）** | T4 GPU (15 GB VRAM / Free Tier) | `colab-llamacpp-hub_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nkrf9a1eVHEzES_QU5y00vf365FPwgnK?usp=sharing) |
-| **English（96G）** | 高記憶體 GPU (96 GB VRAM) | `colab-llamacpp-hub_96G_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10Em-w1Y7xRSf7N56UBOc4_aENPjjoQJU?usp=sharing) |
 
 ---
 
@@ -64,6 +62,11 @@
 ### 96G 專用版內建模型與規格
 
 專為 **96GB 高顯卡記憶體**（如 Colab 高階 GPU）環境設計，支援多檔案分片自動展開下載與斷點續傳，預設載入 **256K** 上下文長度：
+
+| 版本 | 適用規格 | 檔案名稱 | 啟動連結 |
+| :--- | :--- | :--- | :---: |
+| **繁體中文版（96G）** | 高記憶體 GPU (96 GB VRAM) | `colab-llamacpp-hub_96G.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PlOqL4JMTxaWYlyU2m4rdDwlmoE0yv5C?usp=sharing) |
+| **English（96G）** | 高記憶體 GPU (96 GB VRAM) | `colab-llamacpp-hub_96G_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10Em-w1Y7xRSf7N56UBOc4_aENPjjoQJU?usp=sharing) |
 
 | 模型名稱 | Hugging Face 來源 | 預設別名 | 多模態支援 (MMProj) |
 | :--- | :--- | :--- | :---: |

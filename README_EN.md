@@ -13,9 +13,7 @@ A high-performance launcher and model switcher for Google Colab, built on offici
 | Edition | Target Hardware | Notebook | Launch |
 | :--- | :--- | :--- | :---: |
 | **English (Standard)** | T4 GPU (15 GB VRAM / Free Tier) | `colab-llamacpp-hub_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nkrf9a1eVHEzES_QU5y00vf365FPwgnK?usp=sharing) |
-| **English (96G)** | High-VRAM GPU (96 GB VRAM) | `colab-llamacpp-hub_96G_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10Em-w1Y7xRSf7N56UBOc4_aENPjjoQJU?usp=sharing) |
 | **Traditional Chinese (Standard)** | T4 GPU (15 GB VRAM / Free Tier) | `colab-llamacpp-hub.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1nec-U8HF8nX17F5zZrImr5xj5VeFY11v?usp=sharing) |
-| **Traditional Chinese (96G)** | High-VRAM GPU (96 GB VRAM) | `colab-llamacpp-hub_96G.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PlOqL4JMTxaWYlyU2m4rdDwlmoE0yv5C?usp=sharing) |
 
 ---
 
@@ -64,6 +62,11 @@ Preconfigured with optimized public GGUF models:
 ### 96G Edition Built-in Model & Specs
 
 Designed specifically for **96GB high-VRAM** GPU runtimes, supporting automatic multi-shard download expansion and breakpoint resumption, with **256K** context enabled by default:
+
+| Edition | Target Hardware | Notebook | Launch |
+| :--- | :--- | :--- | :---: |
+| **English (96G)** | High-VRAM GPU (96 GB VRAM) | `colab-llamacpp-hub_96G_EN.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/10Em-w1Y7xRSf7N56UBOc4_aENPjjoQJU?usp=sharing) |
+| **Traditional Chinese (96G)** | High-VRAM GPU (96 GB VRAM) | `colab-llamacpp-hub_96G.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PlOqL4JMTxaWYlyU2m4rdDwlmoE0yv5C?usp=sharing) |
 
 | Model Name | Hugging Face Repository | Alias | Multimodal (MMProj) |
 | :--- | :--- | :--- | :---: |
