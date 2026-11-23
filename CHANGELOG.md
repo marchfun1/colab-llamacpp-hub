@@ -147,7 +147,7 @@
 ### 🔀 Web UI 多模型清單 (Router Mode)
 - **改用 llama-server 路由模式啟動**：
   - 以 `--models-preset` 自動產生 `models-preset.ini`，將本機所有已下載模型（含各自 MMProj 與最佳化參數）列入 Web UI 模型清單，切換新模型後先前的模型仍可直接選取。
-  - 設定 `--models-max 1`，同時僅保留一個模型於 GPU，切換時自動卸載前一模型，避免 T4 顯存不足（OOM）。
+  - 設定 `--models-max 1`，同時僅保留一個模型於 GPU，切換時自動卸載前一模型，避免 T4 顯卡記憶體不足（OOM）。
   - 啟動後自動透過 `/models/load` 載入表單所選模型並等待就緒；若執行檔不支援路由模式，自動退回單模型模式。
 
 ### 📐 上下文長度最佳化 (Context Window Options)

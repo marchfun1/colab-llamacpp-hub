@@ -61,12 +61,24 @@ Preconfigured with optimized public GGUF models:
 
 * Context Window Options: `64K`, `128K`, `256K` (Please select based on your allocated Colab GPU VRAM to avoid Out-Of-Memory errors).
 
+### 96G Edition Built-in Model & Specs
+
+Designed specifically for **96GB high-VRAM** GPU runtimes, supporting automatic multi-shard download expansion and breakpoint resumption, with **256K** context enabled by default:
+
+| Model Name | Hugging Face Repository | Alias | Multimodal (MMProj) |
+| :--- | :--- | :--- | :---: |
+| **Qwen3.8-Flash-Next UD-IQ4_XS** | `unsloth/Qwen3.8-Flash-Next-GGUF` | `qwen3.8-flash-next` | ✅ Supported |
+
+- **Qwen3.8-Flash-Next UD-IQ4_XS**
+  - **Features**: High-capacity flagship reasoning model quantized with Unsloth Dynamic UD-IQ4_XS (3 shards, ~87.25 GiB total), fully utilizing 96GB VRAM for superior long-context and complex reasoning performance; also supports multimodal vision understanding via `mmproj-BF16.gguf` / `mmproj-F16.gguf`.
+  - **Native Context**: Up to 262,144 tokens (256K) natively, extensible up to 1,000,000 tokens (1M); the 96G Edition defaults to 256K and supports `64K` / `128K` / `256K` / `512K` / `1M`.
+
 ---
 
 ## 🚀 Quick Start
 
 1. **Open the Notebook**: Upload or import `colab-llamacpp-hub_EN.ipynb` into Google Colab, or simply click the launch link in the **Open in Google Colab** table above.
-2. **Enable GPU Accelerator**: Go to **Runtime** > **Change runtime type**, and select **T4 GPU** (or any higher-tier GPU).
+2. **Enable GPU Accelerator**: Go to **Runtime** > **Change runtime type**, and select **T4 GPU** or any other available GPU (at least 15GB VRAM).
 3. **Initial Launch**:
    - Locate the first code cell (Form UI).
    - Select your target model, configure MMProj (`LOAD_MMPROJ`), and choose the context window size.
