@@ -41,13 +41,31 @@
 | **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ 支援 |
 | **Inkling-2-Mini UD-Q3_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q3kxl` | ✅ 支援 |
 
+### 模型特色介紹
+
+1. **Gemma 4 12B QAT Q4_0**
+   - **模型特色**：Google 最新一代輕量高效能指令微調模型，經量化感知訓練（QAT）處理，兼顧低顯存佔用與高精確度；支援多模態視覺投影（MMProj）。
+   - **原生架構上下文**：最高 256K tokens（本啟動器支援最高配置至 256K）。
+
+2. **Qwen3.5-9B Q5_K_M**
+   - **模型特色**：阿里通義千問優秀的輕量多語言模型，採用 Q5_K_M 中高精度量化，推論流暢、中文理解與綜合推理表現均衡；亦支援搭配 MMProj 進行視覺理解。
+   - **原生架構上下文**：最高 262,144 tokens（256K，本啟動器支援最高配置至 256K）。
+
+3. **Qwen3.8-27B UD-Q2_K_XL**
+   - **模型特色**：27B 中大參數量模型，透過極致的 UD-Q2 超低位元量化技術，讓 16GB 顯存（如 Colab T4）也能載入大參數量模型進行高難度推理；亦支援多模態視覺投影。
+   - **原生架構上下文**：最高 262,144 tokens（256K，本啟動器支援最高配置至 256K）。
+
+4. **Inkling-2-Mini UD-Q3_K_XL**
+   - **模型特色**：Thinking Machines 的 MoE 多模態模型，採用 Unsloth Dynamic 3.0 UD-Q3_K_XL 量化，兼顧低顯存佔用、綜合推理與視覺理解能力。
+   - **原生架構上下文**：最高 256K tokens（本啟動器支援最高配置至 256K）。
+
 * 上下文長度（Context）可選：`64K`、`128K`、`256K`（請依 Colab 實際分配到的 GPU 記憶體配置，避免 OOM）。
 
 ---
 
 ## 🚀 快速開始
 
-1. **開啟 Notebook**：將 `colab-llamacpp-hub.ipynb` 上傳或匯入至 Google Colab。
+1. **開啟 Notebook**：將 `colab-llamacpp-hub.ipynb` 上傳或匯入至 Google Colab，或直接點擊上方「直接在 Colab 中開啟」表格中的啟動連結開啟。
 2. **啟用 GPU 加速**：在 Colab 頂部選單點選 **執行階段** > **變更執行階段類型**，硬體加速器選擇 **T4 GPU** 或其他可用 GPU。
 3. **初次啟動**：
    - 找到第一個程式碼儲存格（表單介面）。

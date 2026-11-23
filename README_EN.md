@@ -41,13 +41,31 @@ Preconfigured with optimized public GGUF models:
 | **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ Supported |
 | **Inkling-2-Mini UD-Q3_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q3kxl` | ✅ Supported |
 
+### Model Highlights
+
+1. **Gemma 4 12B QAT Q4_0**
+   - **Features**: Google's latest lightweight, high-efficiency instruction-tuned model processed with Quantization-Aware Training (QAT), balancing low VRAM footprint with high accuracy; supports multimodal vision projection (MMProj).
+   - **Native Context**: Up to 256K tokens (Launcher supports up to 256K).
+
+2. **Qwen3.5-9B Q5_K_M**
+   - **Features**: Alibaba's versatile lightweight multilingual model using Q5_K_M medium-high precision quantization, offering smooth inference, strong Chinese comprehension, and balanced reasoning; supports MMProj for vision understanding.
+   - **Native Context**: Up to 262,144 tokens (256K; Launcher supports up to 256K).
+
+3. **Qwen3.8-27B UD-Q2_K_XL**
+   - **Features**: A 27B parameter model utilizing Unsloth Dynamic 2-bit ultra-low-bit quantization (UD-Q2_K_XL), enabling 16GB VRAM GPUs (such as Colab T4) to run large-scale reasoning; supports multimodal vision projection.
+   - **Native Context**: Up to 262,144 tokens (256K; Launcher supports up to 256K).
+
+4. **Inkling-2-Mini UD-Q3_K_XL**
+   - **Features**: Thinking Machines' MoE multimodal model with Unsloth Dynamic 3.0 UD-Q3_K_XL quantization, balancing low VRAM usage, strong reasoning, and vision capabilities.
+   - **Native Context**: Up to 256K tokens (Launcher supports up to 256K).
+
 * Context Window Options: `64K`, `128K`, `256K` (Please select based on your allocated Colab GPU VRAM to avoid Out-Of-Memory errors).
 
 ---
 
 ## 🚀 Quick Start
 
-1. **Open the Notebook**: Import `colab-llamacpp-hub_EN.ipynb` into Google Colab.
+1. **Open the Notebook**: Upload or import `colab-llamacpp-hub_EN.ipynb` into Google Colab, or simply click the launch link in the **Open in Google Colab** table above.
 2. **Enable GPU Accelerator**: Go to **Runtime** > **Change runtime type**, and select **T4 GPU** (or any higher-tier GPU).
 3. **Initial Launch**:
    - Locate the first code cell (Form UI).
