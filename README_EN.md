@@ -1,4 +1,4 @@
-# v2.3.4 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
+# v2.3.5 SUMA Remote Model Launcher (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
 
@@ -19,7 +19,7 @@ A high-performance launcher and model switcher for Google Colab, built on offici
 
 ## 🌟 Key Features
 
-- **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) Integration**: Powered by [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) technology to securely bridge remote Google Colab GPU computing power directly to local clients and applications without requiring public IP configuration, port forwarding, or complex reverse proxies.
+- **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) Integration**: Powered by [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) technology (launched with `--auto-approve` to automatically accept incoming connections without manual confirmation) to securely bridge remote Google Colab GPU computing power directly to local clients and applications without requiring public IP configuration, port forwarding, or complex reverse proxies.
 - **Zero-Build Instant Setup**: Downloads and extracts official prebuilt `llama.cpp` (b12651) binaries directly, eliminating long build and compilation times.
 - **Form-Based UI**: Utilizes Google Colab Form controls with clean dropdown selections. Code cells are collapsed by default for an intuitive user experience.
 - **Seamless Hot Switching**: Separate forms for "Initial Startup" and "Model Switching". Switch models smoothly while terminating prior processes and releasing GPU VRAM without restarting the VM session.
@@ -37,7 +37,7 @@ Preconfigured with optimized public GGUF models:
 | **Gemma 4 12B QAT Q4_0** | `google/gemma-4-12B-it-qat-q4_0-gguf` | `gemma-4-12b` | ✅ Supported |
 | **Qwen3.5-9B Q5_K_M** | `unsloth/Qwen3.5-9B-GGUF` | `qwen3.5-9b` | ✅ Supported |
 | **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ Supported |
-| **Inkling-2-Mini UD-Q3_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q3kxl` | ✅ Supported |
+| **Inkling-2-Mini UD-Q2_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q2kxl` | ✅ Supported |
 
 ### Model Highlights
 
@@ -53,8 +53,8 @@ Preconfigured with optimized public GGUF models:
    - **Features**: A 27B parameter model utilizing Unsloth Dynamic 2-bit ultra-low-bit quantization (UD-Q2_K_XL), enabling 16GB VRAM GPUs (such as Colab T4) to run large-scale reasoning; supports multimodal vision projection.
    - **Native Context**: Up to 262,144 tokens (256K; Launcher supports up to 256K).
 
-4. **Inkling-2-Mini UD-Q3_K_XL**
-   - **Features**: Thinking Machines' MoE multimodal model with Unsloth Dynamic 3.0 UD-Q3_K_XL quantization, balancing low VRAM usage, strong reasoning, and vision capabilities.
+4. **Inkling-2-Mini UD-Q2_K_XL**
+   - **Features**: Thinking Machines' MoE multimodal model with Unsloth Dynamic 3.0 UD-Q2_K_XL quantization, balancing low VRAM usage, strong reasoning, and vision capabilities.
    - **Native Context**: Up to 256K tokens (Launcher supports up to 256K).
 
 * Context Window Options: `64K`, `128K`, `256K` (Please select based on your allocated Colab GPU VRAM to avoid Out-Of-Memory errors).

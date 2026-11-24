@@ -1,4 +1,4 @@
-# v2.3.4 SUMA 遠端模型啟動器 (Colab llama.cpp Launcher)
+# v2.3.5 SUMA 遠端模型啟動器 (Colab llama.cpp Launcher)
 
 [English](README_EN.md) | [繁體中文](README.md)
 
@@ -19,7 +19,7 @@
 
 ## 🌟 核心特色
 
-- **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 算力串接**：採用 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術，直接將遠端 Google Colab 的 GPU 算力安全對接到本地應用與客戶端，無需設定公網 IP、連接埠轉發（Port Forwarding）或繁瑣的反向代理。
+- **[SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 算力串接**：採用 [SUMA Remote AI Bridge](https://suma.tw/product/ai-bridge/) 技術（預設啟用 `--auto-approve` 自動接受連線，無需人工驗證），直接將遠端 Google Colab 的 GPU 算力安全對接到本地應用與客戶端，無需設定公網 IP、連接埠轉發（Port Forwarding）或繁瑣的反向代理。
 - **零建置快速啟動**：直接下載並解壓 `llama.cpp` (b12651) 官方預編譯套件，省去漫長的本機編譯時間。
 - **直觀表單介面**：利用 Colab Form 表單檢視，提供下拉式選單操作，預設折疊程式碼，保持視覺乾淨簡潔。
 - **無縫熱切換**：提供「初次啟動」與「後續切換」表單，切換模型時自動平順終止既有推論程序並釋放 VRAM，無需重設 VM 執行階段。
@@ -37,7 +37,7 @@
 | **Gemma 4 12B QAT Q4_0** | `google/gemma-4-12B-it-qat-q4_0-gguf` | `gemma-4-12b` | ✅ 支援 |
 | **Qwen3.5-9B Q5_K_M** | `unsloth/Qwen3.5-9B-GGUF` | `qwen3.5-9b` | ✅ 支援 |
 | **Qwen3.8-27B UD-Q2_K_XL** | `unsloth/Qwen3.8-27B-GGUF` | `qwen3.8-27b-q2kxl` | ✅ 支援 |
-| **Inkling-2-Mini UD-Q3_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q3kxl` | ✅ 支援 |
+| **Inkling-2-Mini UD-Q2_K_XL** | `unsloth/Inkling-2-Mini-GGUF` | `inkling-2-mini-q2kxl` | ✅ 支援 |
 
 ### 模型特色介紹
 
@@ -53,8 +53,8 @@
    - **模型特色**：27B 中大參數量模型，透過極致的 UD-Q2 超低位元量化技術，讓 16GB 顯卡記憶體（如 Colab T4）也能載入大參數量模型進行高難度推理；亦支援多模態視覺投影。
    - **原生架構上下文**：最高 262,144 tokens（256K，本啟動器支援最高配置至 256K）。
 
-4. **Inkling-2-Mini UD-Q3_K_XL**
-   - **模型特色**：Thinking Machines 的 MoE 多模態模型，採用 Unsloth Dynamic 3.0 UD-Q3_K_XL 量化，兼顧低顯卡記憶體佔用、綜合推理與視覺理解能力。
+4. **Inkling-2-Mini UD-Q2_K_XL**
+   - **模型特色**：Thinking Machines 的 MoE 多模態模型，採用 Unsloth Dynamic 3.0 UD-Q2_K_XL 量化，兼顧低顯卡記憶體佔用、綜合推理與視覺理解能力。
    - **原生架構上下文**：最高 256K tokens（本啟動器支援最高配置至 256K）。
 
 * 上下文長度（Context）可選：`64K`、`128K`、`256K`（請依 Colab 實際分配到的 GPU 記憶體配置，避免 OOM）。

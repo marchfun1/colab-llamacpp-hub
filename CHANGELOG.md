@@ -2,6 +2,23 @@
 
 本專案遵循語意化版本（Semantic Versioning）規範記錄所有版本變更。
 
+## [2.3.5] - 2026-11-24
+
+### 🤖 模型清單調整與快取路徑最佳化 (Model Catalog & Storage Path)
+- **替換預設模型量化版本**：
+  - 將 `Inkling-2-Mini UD-Q3_K_XL` 替換為更輕量的 `Inkling-2-Mini UD-Q2_K_XL`（來源：`unsloth/Inkling-2-Mini-GGUF`，主模型：`Mainline_Support/Inkling-2-Mini-UD-Q2_K_XL.gguf_file`，別名：`inkling-2-mini-q2kxl`，保留多模態 `mmproj-BF16.gguf`），進一步降低顯卡記憶體佔用。
+- **固定模型存放目錄 (`/content/models`)**：
+  - 將模型存放路徑抽離 `llama.cpp` 版本目錄（`_ROOT`），獨立使用固定路徑 `/content/models`（本機為 `~/models`），升級引擎版本時無須重複搬移或重新下載既有模型。
+
+### 🔗 遠端橋接自動核准連線 (SUMA Auto-Approve)
+- **啟用 `--auto-approve` 參數**：
+  - `suma-ai-bridge` 啟動指令新增 `--auto-approve`，預設自動接受遠端連線請求，無須人工手動驗證。
+
+### 📝 文件與版本同步 (Documentation & Sync)
+- 同步更新標準繁中版 (`colab-llamacpp-hub.ipynb`)、96G 繁中專用版 (`colab-llamacpp-hub_96G.ipynb`)、標準英文版 (`colab-llamacpp-hub_EN.ipynb`)、96G 英文專用版 (`colab-llamacpp-hub_96G_EN.ipynb`)，以及 `README.md` / `README_EN.md`（補充說明模型固定存放路徑與自動接受連線機制）。
+
+---
+
 ## [2.3.4] - 2026-11-23
 
 ### ⚙️ 推論引擎升級 (Engine Upgrade)
@@ -10,14 +27,17 @@
   - 快取與連線檢查目錄遷移至 `/content/llama-direct-b12651`，維持斷點續傳與已下載資產相容性。
   - 同步更新內建官方直連預編譯資產清單 (`_KNOWN_ASSETS`)，收錄 `b12651` 官方 CUDA 12.8 / 13.5 套件與對應 `cudart` 下載連結及精確檔案大小。
 
-### 🤖 模型清單調整 (Model Catalog Update)
+### 🤖 模型清單調整與相容性修正 (Model Catalog & Compatibility)
 - **替換預設模型選項**：
-  - 將 `Qwen3.8-27B Coder390 Q2LynnStyle` 替換為 `Inkling-2-Mini UD-Q3_K_XL`（來源：`unsloth/Inkling-2-Mini-GGUF`，主模型：`Inkling-2-Mini-UD-Q3_K_XL.gguf`，別名：`inkling-2-mini-q3kxl`）。
+  - 將 `Qwen3.8-27B Coder390 Q2LynnStyle` 替換為 `Inkling-2-Mini UD-Q3_K_XL`（來源：`unsloth/Inkling-2-Mini-GGUF`，主模型：`Mainline_Support/Inkling-2-Mini-UD-Q3_K_XL.gguf_file`，別名：`inkling-2-mini-q3kxl`）。
   - 內建多模態視覺投影檔設定：`mmproj-BF16.gguf`，支援自動下載與載入。
+  - **主線 `llama.cpp` 相容性修正**：改用 `Mainline_Support/` 目錄下的 `inkling2_loop` 格式檔案，並於 `_prepare_files()` 中自動將 `.gguf_file` 儲存為 `.gguf`，確保於官方主線 `llama.cpp`（`b12651`）正常載入執行。
+- **96G 專用版超長上下文擴展**：
+  - 配合 `Qwen3.8-Flash-Next UD-IQ4_XS` 最高 1,000,000 tokens 擴展能力，於 96G 專用版（`colab-llamacpp-hub_96G.ipynb`、`colab-llamacpp-hub_96G_EN.ipynb`）新增 `512K`（`524288`）與 `1M`（`1000000`）上下文長度選項（預設維持 `256K`）。
 
 ### 📝 文件與版本同步 (Documentation & Sync)
 - 同步更新標準繁中版 (`colab-llamacpp-hub.ipynb`)、96G 繁中專用版 (`colab-llamacpp-hub_96G.ipynb`)、標準英文版 (`colab-llamacpp-hub_EN.ipynb`) 與 96G 英文專用版 (`colab-llamacpp-hub_96G_EN.ipynb`)。
-- 於繁體中文與英文版 `README.md` / `README_EN.md` 頂部明確揭露目前內建 `llama.cpp` 版本 (`b12651`)。
+- 於繁體中文與英文版 `README.md` / `README_EN.md` 頂部明確揭露目前內建 `llama.cpp` 版本 (`b12651`)，補齊四款標準版模型與 96G 專用版 (`Qwen3.8-Flash-Next UD-IQ4_XS`) 詳細介紹，調整 96G 啟動連結至專屬段落，並統一使用臺灣慣用語「顯卡記憶體」。
 
 ---
 
